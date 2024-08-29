@@ -24,17 +24,14 @@ def test_facts_structure():
     """
     response = client.get_facts()
 
-    # Validate status code
     assert_status_code(response, 200)
 
-    # Expected structure and data types
     expected_structure = {
         "_id": str,
         "text": str,
         "type": str,
     }
 
-    # Validate the structure and data types of the facts
     data = response.json()
     assert_json_structure(data, expected_structure)
 
